@@ -21,7 +21,11 @@ function PlayersController:view()
   local params = self:accepted_params({ 'player_id' }, self.params)
   local player = Players.find_by { id = params.player_id }
 
-  return 200, player
+  if player then
+    return 200, player
+  end
+
+  return 404
 end
 
 return PlayersController

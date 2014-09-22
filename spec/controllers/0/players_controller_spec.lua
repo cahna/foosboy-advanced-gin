@@ -67,25 +67,39 @@ describe("PlayersController", function()
   end)
   
   describe("#show", function()
-    local test_player
+    describe("when the player can be found", function()
+      local test_player
 
-    before_each(function()
-      test_player = Players.create { player_name = 'test player' }
+      before_each(function()
+        test_player = Players.create { player_name = 'test player' }
+      end)
+
+      after_each(function()
+        test_player = nil
+      end)
+
+      it("shows a player", function()
+        local response = hit({
+          method = 'GET',
+          path = "/players/" .. test_player.id
+        })
+
+        assert.are.equal(200, response.status)
+        assert.are.same(test_player.player_name, response.body.player_name)
+        assert.are.same(test_player.id, response.body.id)
+      end)
     end)
+    
+    describe("when the player cannot be found", function()
+      it("shows a player", function()
+        local response = hit({
+          method = 'GET',
+          path = "/players/123"
+        })
 
-    after_each(function()
-      test_player = nil
-    end)
-
-    it("shows a player", function()
-      local response = hit({
-        method = 'GET',
-        path = "/players/" .. test_player.id
-      })
-
-      assert.are.equal(200, response.status)
-      assert.are.same(test_player.player_name, response.body.player_name)
-      assert.are.same(test_player.id, response.body.id)
+        assert.are.equal(404, response.status)
+        assert.are.same({}, response.body)
+      end)
     end)
   end)
 end)
