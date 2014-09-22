@@ -12,6 +12,13 @@
 --     'headers' (optional)  are the headers to be returned in the response
 -------------------------------------------------------------------------------------------------------------------
 
-local Errors = {}
+local Errors = {
+  -- Controller errors 1000-1999
+  [1000] = { status = 400, message = "Foosboy Advanced application error." },
+  [1401] = { status = 401, message = 'Unauthorized.' },
+  [1403] = { status = 403, message = 'Forbidden.' },
+  [1404] = { status = 404, message = 'Not Found.' },
+  [1500] = { status = 500, message = 'Server Error.' }
+}
 
 return Errors

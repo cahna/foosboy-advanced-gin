@@ -3,6 +3,8 @@ foosboy-advanced-gin
 
 Foosboy Advanced - Foosball statistics tracking worthless-micro-service built with Lua, openresty, and Gin.io
 
+[![Build Status](https://drone.io/github.com/cahna/foosboy-advanced-gin/status.png)](https://drone.io/github.com/cahna/foosboy-advanced-gin/latest)
+
 ## Development
 
 This is simply an outline of the workflow I've chosen to try out for this project as an experiment:
