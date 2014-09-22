@@ -4,7 +4,8 @@ local routes = require 'gin.core.routes'
 local v0 = routes.version(0)
 
 -- define routes
-v0:GET("/",        { controller = "pages",   action = "root"  })
-v0:GET("/players", { controller = "players", action = "index" })
+v0:GET  ("/",        { controller = "pages",   action = "root"   })
+v0:GET  ("/players", { controller = "players", action = "index"  })
+v0:POST ("/players", { controller = "players", action = "create" })
 
 return routes

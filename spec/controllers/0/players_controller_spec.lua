@@ -43,5 +43,21 @@ describe("PlayersController", function()
       }, response.body)
     end)
   end)
+  
+  describe("#create", function()
+    it("adds a new player", function()
+      local test_player_name = 'test user'
+      local response = hit({
+        method = 'POST',
+        path = "/players",
+        body = { player_name = test_player_name }
+      })
+
+      local new_user = Players.find_by({ player_name = test_player_name })
+      assert.are_not.equals(nil, new_user)
+      assert.are.equal(201, response.status)
+      assert.are.same(new_user, response.body)
+    end)
+  end)
 end)
 
