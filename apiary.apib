@@ -258,3 +258,118 @@ A single Game object with all its details.
 
 + Response 204
 
+# Group Series
+Manage foosball Series data. A Game is foosball duel between 2 teams (remember, teams can be a single Player or 
+multiple Players) where the objective is to reach an agreed-upon maximum score before the opposing team. 
+A Series, on the other hand, is a contest between 2 teams to play an agreed-upon number of Games, with the
+winning team being the team that wins more Games than the other team in the Series. If the Teams win the same
+number of games (in a Series consisting of an even-number of Games), then the Series is declared a draw.
+
+## Series [/series]
+Lists of Series objects with their details.
+
+### List all Series [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 42, 
+          "game_count": 4,
+          "team_1": 101
+          "team_1_wins": 2,
+          "team_2": 102
+          "tesm_2_wins": 2,
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+### Record the outcome of a Series [POST]
+This is done by posting a list of Game outcomes to be created.
+
++ Request (application/json)
+
+    + Headers
+    
+            Foosboy-User: 999
+
+    + Body
+
+            [{ 
+                "max_score": 3,
+                "losing_score": 2,
+                "winning_team": 101,
+                "losing_team": 102
+            },
+            { 
+                "max_score": 3,
+                "losing_score": 1,
+                "winning_team": 101,
+                "losing_team": 102
+            },
+            { 
+                "max_score": 3,
+                "losing_score": 0,
+                "winning_team": 102,
+                "losing_team": 101
+            },
+            { 
+                "max_score": 3,
+                "losing_score": 1,
+                "winning_team": 102,
+                "losing_team": 101
+            }]
+
++ Response 201 (application/json)
+
+        [{
+          "id": 42, 
+          "team1": 101,
+          "team2": 102,
+          "games": [ 22, 23, 24, 25 ],
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+## Series [/series/{id}]
+A single Series object with all its details.
+
++ Parameters
+    + id (required, number, `42`) ... Numeric `id` of the Series to perform action with. 
+
+### Retrieve a Series [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 42, 
+          "team1": 101,
+          "team2": 102,
+          "games": [ 22, 23, 24, 25 ],
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+### Remove a Series [DELETE]
++ Request
+
+    + Headers
+    
+            Foosboy-User: 999
+
++ Response 204
+
+### Retrieve a Series summary [GET /summary]
++ Response 200 (application/json)
+
+        [{
+          "id": 42, 
+          "game_count": 4,
+          "games": [ mes": [ 22, 23, 24, 25 ],
+          22, 23, 24, 25 ],
+          "team_1": 101
+          "team_1_wins": 2,
+          "team_2": 102
+          "team_2_wins": 2,
+          "winning_team": null,
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
