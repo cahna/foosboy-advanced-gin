@@ -1,5 +1,5 @@
 local Application = {
-    name = "foosboy-advanced",
+    name = "foosboyadvanced",
     version = '0.0.1'
 }
 

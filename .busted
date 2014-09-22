@@ -1,0 +1,7 @@
+return {
+  default = {
+    verbose = false,
+    lpath = './?.lua;./?/init.lua;/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua;' .. package.path,
+    cpath = './?.so;/usr/share/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;'
+  }
+}

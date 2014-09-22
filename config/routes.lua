@@ -1,9 +1,10 @@
 local routes = require 'gin.core.routes'
 
 -- define version
-local v1 = routes.version(1)
+local v0 = routes.version(0)
 
 -- define routes
-v1:GET("/", { controller = "pages", action = "root" })
+v0:GET("/",        { controller = "pages",   action = "root"  })
+v0:GET("/players", { controller = "players", action = "index" })
 
 return routes
