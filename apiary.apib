@@ -1,0 +1,181 @@
+FORMAT: 1A
+HOST: http://localhost:7200
+
+# Foosboy Advanced
+The Foosboy Advanced API is a yet-another micro service that probably shouldn't exist. With FBA, you can track office and cross-office foosball statistics.
+
+# Group Players
+Manage foosball player data.
+
+## Players [/players]
+Lists of Player objects with their details.
+
+### List all Players [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "user_id": 1234, "player_name": "Player 1"
+        }, {
+          "id": 2, "user_id": null, "player_name": "Test User"
+        }]
+
+### Create a Player [POST]
++ Request (application/json)
+
+        { "player_name": "Test User" }
+
++ Response 201 (application/json)
+
+        { "id": 2, "player_name": "Test User" }
+
+## Player [/players/{id}]
+A single Player object with all its details.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Player to perform action with. Has example value.
+
+### Retrieve a Player [GET]
++ Response 200 (application/json)
+
+        { "id": 2, "user_id": null, "player_name": "Test User" }
+
+### Remove a Player [DELETE]
++ Response 204
+
+# Group Teams
+Manage foosball team data.
+
+## Teams [/teams]
+Lists of Team objects with their details.
+
+### List all Teams [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, 
+          "team_name": "Awesomesauce", 
+          "team_size": 2, 
+          "player_ids": [ 101, 102 ],
+          "created_by_user": 998,
+          "date_created": "2014-09-21-12:34:56.89"
+        }, {
+          "id": 2, 
+          "team_name": "The 'i' in 'team'", 
+          "team_size": 1, 
+          "player_ids": [ 103 ],
+          "created_by_user": 999,
+          "date_created": "2014-09-20-11:35:00.82"
+        }]
+
+### Create a Team [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Foosboy-User: 999
+
+    + Body
+
+            { 
+                "team_name": "The 'i' in 'team'",
+                "player_ids": [ 103 ]
+            }
+
++ Response 201 (application/json)
+
+        {
+          "id": 2, 
+          "team_name": "The 'i' in 'team'", 
+          "team_size": 1, 
+          "player_ids": [ 103 ],
+          "created_by_user": 999,
+          "date_created": "2014-09-20-11:35:00.82"
+        }
+
+## Team [/teams/{id}]
+A single Team object with all its details.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Team to perform action with. Has example value.
+
+### Retrieve a Team [GET]
++ Response 200 (application/json)
+
+        {
+          "id": 2, 
+          "team_name": "The 'i' in 'team'", 
+          "team_size": 1, 
+          "player_ids": [ 103 ],
+          "created_by_user": 999,
+          "date_created": "2014-09-20-11:35:00.82"
+        }
+
+### Remove a Team [DELETE]
++ Response 204
+
+# Group Users
+Manage foosball Web/API/Client User data. Users are consumers of the API,
+and/or webservice, and may or may not be foosball Players. Users may also
+be producers of data for the API, such as automated client users or script
+users. Notify the API of your user_id via the `Foosboy-User` header on
+requests.
+
+
+## Users [/users]
+Lists of User objects with their details.
+
+### List all Users [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 999, 
+          "username": "foosboy_administrator",
+          "player_id": 101,
+          "date_created": "2014-09-21-12:34:56.89",
+          "email": "admin@example.com"
+        }]
+
+### Create a User [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Foosboy-User: 999
+
+    + Body
+
+            { 
+                "username": "test_user",
+                "email": "test_user@example.com"
+            }
+
++ Response 201 (application/json)
+
+        {
+          "id": 1000, 
+          "username": "test_user", 
+          "player_id": null,
+          "email": "test_user@example.com",
+          "date_created": "2014-09-20-11:35:00.82"
+        }
+
+## User [/users/{id}]
+A single User object with all its details.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+
+### Retrieve a User [GET]
++ Response 200 (application/json)
+
+        {
+          "id": 1000, 
+          "username": "test_user", 
+          "player_id": null,
+          "email": "test_user@example.com",
+          "date_created": "2014-09-20-11:35:00.82"
+        }
+
+### Remove a User [DELETE]
++ Response 204
+
