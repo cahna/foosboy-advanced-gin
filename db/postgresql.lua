@@ -21,6 +21,16 @@ local DbSettings = {
     user = "super",
     password = "foosboy_advanced",
     pool = 5
+  },
+
+  drone = {
+    adapter = 'postgresql',
+    host = '127.0.0.1',
+    port = 5432,
+    database = "foosboy_advanced",
+    user = 'postgres',
+    password = "",
+    pool = 5
   }
 
   --     production = {

@@ -18,6 +18,12 @@ Settings.test = {
     expose_api_console = false
 }
 
+Settings.drone = {
+    code_cache = true,
+    port = 7201,
+    expose_api_console = false
+}
+
 Settings.production = {
     code_cache = true,
     port = 80,
