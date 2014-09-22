@@ -45,18 +45,24 @@ describe("PlayersController", function()
   end)
   
   describe("#create", function()
-    it("adds a new player", function()
+    it("adds a new player filtering out unaccepted params", function()
       local test_player_name = 'test user'
       local response = hit({
         method = 'POST',
         path = "/players",
-        body = { player_name = test_player_name }
+        body = { 
+          player_name = test_player_name, 
+          id = 123, 
+          nonexistent_param = 'non-existent' 
+        }
       })
 
-      local new_user = Players.find_by({ player_name = test_player_name })
-      assert.are_not.equals(nil, new_user)
+      local new_player = Players.find_by({ player_name = test_player_name })
+      assert.are_not.equals(nil, new_player)
       assert.are.equal(201, response.status)
-      assert.are.same(new_user, response.body)
+      assert.are.same(new_player, response.body)
+      assert.are.not_equals(123, new_player.id)
+      assert.are.not_equals('non-existent', new_player.nonexistent_param)
     end)
   end)
 end)

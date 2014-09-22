@@ -10,7 +10,9 @@ end
 
 function PlayersController:create()
   local Players = require 'app.models.players'
-  local new_player = Players.create(self.request.body)
+  local params = self:accepted_params({ 'player_name' }, self.request.body)
+  local new_player = Players.create(params)
+
   return 201, new_player
 end
 
