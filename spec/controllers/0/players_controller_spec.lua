@@ -65,5 +65,28 @@ describe("PlayersController", function()
       assert.are.not_equals('non-existent', new_player.nonexistent_param)
     end)
   end)
+  
+  describe("#show", function()
+    local test_player
+
+    before_each(function()
+      test_player = Players.create { player_name = 'test player' }
+    end)
+
+    after_each(function()
+      test_player = nil
+    end)
+
+    it("shows a player", function()
+      local response = hit({
+        method = 'GET',
+        path = "/players/" .. test_player.id
+      })
+
+      assert.are.equal(200, response.status)
+      assert.are.same(test_player.player_name, response.body.player_name)
+      assert.are.same(test_player.id, response.body.id)
+    end)
+  end)
 end)
 

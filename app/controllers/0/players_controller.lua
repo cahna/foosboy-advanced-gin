@@ -16,5 +16,13 @@ function PlayersController:create()
   return 201, new_player
 end
 
+function PlayersController:view()
+  local Players = require 'app.models.players'
+  local params = self:accepted_params({ 'player_id' }, self.params)
+  local player = Players.find_by { id = params.player_id }
+
+  return 200, player
+end
+
 return PlayersController
 
