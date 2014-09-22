@@ -179,3 +179,82 @@ A single User object with all its details.
 ### Remove a User [DELETE]
 + Response 204
 
+# Group Games
+Manage foosball Game data. A Game is foosball duel between 2 teams (remember, teams can be a single Player or 
+multiple Players) where the objective is to reach an agreed-upon maximum score before the opposing team. 
+A Series, on the other hand, is a contest between 2 teams to play an agreed-upon number of Games, with the
+winning team being the team that wins more Games than the other team in the Series. If the Teams win the same
+number of games (in a Series consisting of an even-number of Games), then the Series is declared a draw.
+
+## Games [/games]
+Lists of Game objects with their details.
+
+### List all Games [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 22, 
+          "max_score": 3,
+          "losing_score": 1,
+          "winning_team": 101,
+          "losing_team": 102,
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+### Record the outcome of a Game [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Foosboy-User: 999
+
+    + Body
+
+            { 
+                "max_score": 3,
+                "losing_score": 1,
+                "winning_team": 101,
+                "losing_team": 102
+            }
+
++ Response 201 (application/json)
+
+        [{
+          "id": 22, 
+          "max_score": 3,
+          "losing_score": 1,
+          "winning_team": 101,
+          "losing_team": 102,
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+## Game [/games/{id}]
+A single Game object with all its details.
+
++ Parameters
+    + id (required, number, `22`) ... Numeric `id` of the Game to perform action with. Has example value.
+
+### Retrieve a Game [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 22, 
+          "max_score": 3,
+          "losing_score": 1,
+          "winning_team": 101,
+          "losing_team": 102,
+          "date_played": "2014-09-21-12:34:56.89",
+          "created_by_user": 999
+        }]
+
+### Remove a Game [DELETE]
++ Request
+
+    + Headers
+    
+            Foosboy-User: 999
+
++ Response 204
+
