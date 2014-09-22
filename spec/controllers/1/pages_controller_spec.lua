@@ -9,7 +9,7 @@ describe("PagesController", function()
             })
 
             assert.are.same(200, response.status)
-            assert.are.same({ message = "Hello world from Gin!" }, response.body)
+            assert.are.same({ message = "Hello world from Foosboy Advanced!" }, response.body)
         end)
     end)
 end)

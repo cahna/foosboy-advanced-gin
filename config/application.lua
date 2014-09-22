@@ -1,5 +1,5 @@
 local Application = {
-    name = "testergin",
+    name = "foosboy-advanced",
     version = '0.0.1'
 }
 
