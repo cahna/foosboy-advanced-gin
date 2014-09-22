@@ -5,6 +5,6 @@ db:
     - "5432:5432"
   environment:
     USER: fba_admin
-    PASS: 39b6264e3a699d547c282b7d6b88519a
+    PASS: foosboy_advanced
     DB: foosboy_advanced
     EXTENSIONS: uuid-ossp
