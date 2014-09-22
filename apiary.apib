@@ -34,10 +34,22 @@ A single Player object with all its details.
 + Parameters
     + id (required, number, `2`) ... Numeric `id` of the Player to perform action with. 
 
++ Model (application/json)
+
+    + Body
+    
+            ```
+            {
+                "id": 1,
+                "user_id": 999,
+                "player_name": "Player 1"
+            }
+            ```
+
 ### Retrieve a Player [GET]
 + Response 200 (application/json)
 
-        { "id": 2, "user_id": null, "player_name": "Test User" }
+        [Player][]
 
 ### Remove a Player [DELETE]
 + Response 204
@@ -354,7 +366,7 @@ A single Series object with all its details.
 
 + Response 204
 
-## Series Summary [GET /series/{id}/summary]
+## Series Summary [/series/{id}/summary]
 A single Series object with a summary of the outcome.
 
 + Parameters
