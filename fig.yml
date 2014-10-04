@@ -1,5 +1,5 @@
 ---
-db:
+devdb:
   image: paintedfox/postgresql
   ports:
     - "5432:5432"
@@ -8,3 +8,14 @@ db:
     PASS: foosboy_advanced
     DB: foosboy_advanced
     EXTENSIONS: uuid-ossp
+
+testdb:
+  image: paintedfox/postgresql
+  ports:
+    - "5433:5432"
+  environment:
+    USER: fba_admin
+    PASS: foosboy_advanced
+    DB: foosboy_advanced
+    EXTENSIONS: uuid-ossp
+
