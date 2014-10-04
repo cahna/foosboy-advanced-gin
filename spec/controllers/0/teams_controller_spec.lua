@@ -5,7 +5,7 @@ local PostgreSql = require 'db.postgresql'
 local Teams = require 'app.models.teams'
 
 local function clean_db()
-  PostgreSql:execute("TRUNCATE TABLE teams;")
+  PostgreSql:execute("DELETE FROM teams;")
 end
 
 describe("TeamsController", function()

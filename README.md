@@ -1,3 +1,4 @@
+
 foosboy-advanced-gin
 ====================
 
@@ -5,17 +6,25 @@ Foosboy Advanced - Foosball statistics tracking worthless-micro-service built wi
 
 [![Build Status](https://drone.io/github.com/cahna/foosboy-advanced-gin/status.png)](https://drone.io/github.com/cahna/foosboy-advanced-gin/latest)
 
+## TODO
+
+- [ ] Domain model
+    - [ ] Games
+        - [ ] Model: winning team, losing team, max score, winning team score, losing team score
+        - [ ] Tests
+        - [ ] Controller
+    - [ ] Series
+        - [ ] Model: 
+        - [ ] Tests
+        - [ ] Controller
+- [ ] 
+
+
 ## Development
 
-This is simply an outline of the workflow I've chosen to try out for this project as an experiment:
-
-1. Update `apiary.apib` with _any_ API changes that need to be implemented.
-
+1. Update `apiary.apib` with any API changes that need to be implemented.
 2. Write tests to cover feature/update. Run them against the apiary.io mock server with your changes. They should pass.
-
 3. Run tests locally. They should fail.
-
 4. Write code to pass local tests (hopefully without needed to change test code). Refactor as needed once tests are passing.
-
-5. Commit and push to kickoff CI pipeline. Wait to commit anything new until CI build/test/deploy succeeds.
+5. Commit to a new feature branch, push, and submit pull-request.
 
