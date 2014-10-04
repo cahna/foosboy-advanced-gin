@@ -29,10 +29,23 @@ function SqlMigration.up()
         CONSTRAINT team_id_player_id UNIQUE (team_id, player_id)
       );
     ]])
+    
+    SqlMigration.db:execute([[
+      CREATE TABLE games  (
+        id SERIAL PRIMARY KEY,
+        winning_team_id INTEGER references teams(id),
+        winning_team_score INTEGER NOT NULL,
+        losing_team_id INTEGER references teams(id),
+        losing_team_score INTEGER NOT NULL DEFAULT 0,
+        CONSTRAINT teams_must_be_different CHECK (winning_team_id <> losing_team_id),
+        CONSTRAINT winner_has_highest_score CHECK (winning_team_score > losing_team_score)
+      );
+    ]])
 end
 
 function SqlMigration.down()
     SqlMigration.db:execute("DROP TABLE team_players CASCADE;")
+    SqlMigration.db:execute("DROP TABLE games CASCADE;")
     SqlMigration.db:execute("DROP TABLE teams;")
     SqlMigration.db:execute("DROP TABLE players;")
 end
