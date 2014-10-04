@@ -43,13 +43,20 @@
   {
     team_players = {
       {
+        numeric_precision = 32,
         is_nullable = "NO",
+        column_name = "id",
+        data_type = "integer",
+        column_default = "nextval('team_players_id_seq'::regclass)"
+      },
+      {
+        is_nullable = "YES",
         column_name = "team_id",
         data_type = "integer",
         numeric_precision = 32
       },
       {
-        is_nullable = "NO",
+        is_nullable = "YES",
         column_name = "player_id",
         data_type = "integer",
         numeric_precision = 32

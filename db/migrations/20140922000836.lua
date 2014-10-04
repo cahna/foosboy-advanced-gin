@@ -23,9 +23,10 @@ function SqlMigration.up()
       
     SqlMigration.db:execute([[
       CREATE TABLE team_players (
+        id SERIAL PRIMARY KEY,
         team_id INTEGER references teams(id),
         player_id INTEGER references players(id),
-        CONSTRAINT team_id_player_id PRIMARY KEY (team_id, player_id)
+        CONSTRAINT team_id_player_id UNIQUE (team_id, player_id)
       );
     ]])
 end
