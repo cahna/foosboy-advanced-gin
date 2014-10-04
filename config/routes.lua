@@ -12,5 +12,8 @@ v0:PATCH ("/players/:player_id",  {  controller  =  "players",  action  =  "upda
 v0:GET   ("/teams",               {  controller  =  "teams",    action  =  "index"   })
 v0:POST  ("/teams",               {  controller  =  "teams",    action  =  "create"  })
 v0:GET   ("/teams/:team_id",      {  controller  =  "teams",    action  =  "view"    })
+v0:GET   ("/games",               {  controller  =  "games",    action  =  "index"   })
+v0:POST  ("/games",               {  controller  =  "games",    action  =  "create"  })
+v0:GET   ("/games/:game_id",      {  controller  =  "games",    action  =  "view"    })
 
 return routes
