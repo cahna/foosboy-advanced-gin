@@ -3,15 +3,12 @@ local GamesController = {}
 
 function GamesController:index()
   local Games = require 'app.models.games'
-
   local all_games = Games.all()
-
   return 200, all_games
 end
 
 function GamesController:create()
   local Games = require 'app.models.games'
-
   local filter_only = { 
     'winning_team_id', 
     'winning_team_score',
@@ -26,7 +23,6 @@ end
 
 function GamesController:view()
   local Games = require 'app.models.games'
-  
   local params = self:accepted_params({ 'game_id' }, self.params)
   local game = Games.find_by { id = params.game_id }
 

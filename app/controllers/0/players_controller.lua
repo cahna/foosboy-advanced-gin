@@ -50,21 +50,16 @@ function PlayersController:update()
 
   if player then
     local team = Teams.find_by { id = body.team_id }
-
     if team then
       local roster_spot = TeamPlayers.find_by { team_id = body.team_id, player_id = params.player_id }
-      
       if roster_spot then  
         player.teams = { team.id }
-
         return 302, player
       end
 
       roster_spot = TeamPlayers.create { team_id = body.team_id, player_id = params.player_id }
-
       if roster_spot then
         player.teams = { team.id }
-
         return 200, player
       end
     end
