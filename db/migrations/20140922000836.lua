@@ -37,6 +37,7 @@ function SqlMigration.up()
         winning_team_score INTEGER NOT NULL,
         losing_team_id INTEGER references teams(id),
         losing_team_score INTEGER NOT NULL DEFAULT 0,
+        date_played TIMESTAMP DEFAULT now(),
         CONSTRAINT teams_must_be_different CHECK (winning_team_id <> losing_team_id),
         CONSTRAINT winner_has_highest_score CHECK (winning_team_score > losing_team_score)
       );

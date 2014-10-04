@@ -96,6 +96,13 @@
         column_name = "losing_team_score",
         data_type = "integer",
         column_default = "0"
+      },
+      {
+        datetime_precision = 6,
+        is_nullable = "YES",
+        column_name = "date_played",
+        data_type = "timestamp without time zone",
+        column_default = "now()"
       }
     }
   }
