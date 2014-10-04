@@ -13,11 +13,10 @@ Lists of Player objects with their details.
 ### List all Players [GET]
 + Response 200 (application/json)
 
-        [{
-          "id": 1, "user_id": 1234, "player_name": "Player 1"
-        }, {
-          "id": 2, "user_id": null, "player_name": "Test User"
-        }]
+        [
+          { "id": 1, "user_id": 1234, "player_name": "Player 1"  }, 
+          { "id": 2, "user_id": null, "player_name": "Test User" }
+        ]
 
 ### Create a Player [POST]
 + Request (application/json)
@@ -38,13 +37,11 @@ A single Player object with all its details.
 
     + Body
     
-            ```
             {
                 "id": 1,
                 "user_id": 999,
                 "player_name": "Player 1"
             }
-            ```
 
 ### Retrieve a Player [GET]
 + Response 200 (application/json)
