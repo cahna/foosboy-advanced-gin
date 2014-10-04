@@ -15,9 +15,9 @@ Foosboy Advanced - Foosball statistics tracking worthless-micro-service built wi
     - [ ] Teams
         - [ ] ?fetch=recursive fetches the players (or just player_ids) for a team (No need for now)
     - [ ] Games
-        - [ ] Model: winning team, losing team, max score, winning team score, losing team score
-        - [ ] Tests
-        - [ ] Controller
+        - [X] Model: winning team, losing team, max score, winning team score, losing team score
+        - [X] Tests
+        - [X] Controller
     - [ ] Series
         - [ ] Model: 
         - [ ] Tests
