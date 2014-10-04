@@ -8,6 +8,7 @@ v0:GET   ("/",                    {  controller  =  "pages",    action  =  "root
 v0:GET   ("/players",             {  controller  =  "players",  action  =  "index"   })
 v0:POST  ("/players",             {  controller  =  "players",  action  =  "create"  })
 v0:GET   ("/players/:player_id",  {  controller  =  "players",  action  =  "view"    })
+v0:PATCH ("/players/:player_id",  {  controller  =  "players",  action  =  "update"  })
 v0:GET   ("/teams",               {  controller  =  "teams",    action  =  "index"   })
 v0:POST  ("/teams",               {  controller  =  "teams",    action  =  "create"  })
 v0:GET   ("/teams/:team_id",      {  controller  =  "teams",    action  =  "view"    })

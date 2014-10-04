@@ -9,6 +9,11 @@ Foosboy Advanced - Foosball statistics tracking worthless-micro-service built wi
 ## TODO
 
 - [ ] Domain model
+    - [ ] TeamPlayers
+        - [X] Add player to team
+        - [ ] Remove player from team (No need for now)
+    - [ ] Teams
+        - [ ] ?fetch=recursive fetches the players (or just player_ids) for a team (No need for now)
     - [ ] Games
         - [ ] Model: winning team, losing team, max score, winning team score, losing team score
         - [ ] Tests
@@ -17,8 +22,12 @@ Foosboy Advanced - Foosball statistics tracking worthless-micro-service built wi
         - [ ] Model: 
         - [ ] Tests
         - [ ] Controller
-- [ ] 
-
+    - [ ] Users
+        - [ ] Model/Controller/Tests
+        - [ ] User can register with email and password
+        - [ ] User account can be tied to one - and only one - player_id to track performance
+        - [ ] User account is tied to a Google/GitHub/OtherOAuth-implemented site
+        - [ ] Implement security?
 
 ## Development
 
