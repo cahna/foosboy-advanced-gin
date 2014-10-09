@@ -7,27 +7,27 @@
 local Settings = {}
 
 Settings.development = {
-    code_cache = false,
-    port = 7200,
-    expose_api_console = true
+  code_cache          =  false,
+  port                =  7200,
+  expose_api_console  =  true
 }
 
 Settings.test = {
-    code_cache = true,
-    port = 7201,
-    expose_api_console = false
+  code_cache          =  true,
+  port                =  7201,
+  expose_api_console  =  false
 }
 
 Settings.drone = {
-    code_cache = true,
-    port = 7201,
-    expose_api_console = false
+  code_cache          =  true,
+  port                =  7201,
+  expose_api_console  =  false
 }
 
 Settings.production = {
-    code_cache = true,
-    port = 80,
-    expose_api_console = false
+  code_cache          =  true,
+  port                =  80,
+  expose_api_console  =  false
 }
 
 return Settings
