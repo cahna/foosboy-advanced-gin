@@ -1,21 +1,21 @@
 ---
 devdb:
-  image: paintedfox/postgresql
+  image: frodenas/postgresql
+  environment:
+    POSTGRES_EXTENSIONS: uuid-ossp
+    POSTGRES_USERNAME: fba_admin
+    POSTGRES_PASSWORD: foosboy_advanced
+    POSTGRES_DBNAME: foosboy_advanced
   ports:
     - "5432:5432"
-  environment:
-    USER: fba_admin
-    PASS: foosboy_advanced
-    DB: foosboy_advanced
-    EXTENSIONS: uuid-ossp
 
 testdb:
-  image: paintedfox/postgresql
+  image: frodenas/postgresql
+  environment:
+    POSTGRES_EXTENSIONS: uuid-ossp
+    POSTGRES_USERNAME: fba_admin
+    POSTGRES_PASSWORD: foosboy_advanced
+    POSTGRES_DBNAME: foosboy_advanced
   ports:
     - "5433:5432"
-  environment:
-    USER: fba_admin
-    PASS: foosboy_advanced
-    DB: foosboy_advanced
-    EXTENSIONS: uuid-ossp
 

@@ -8,7 +8,7 @@ local DbSettings = {
     host = '0.0.0.0',
     port = 5432,
     database = "foosboy_advanced",
-    user = "super",
+    user = "fba_admin",
     password = "foosboy_advanced",
     pool = 5
   },
@@ -18,7 +18,7 @@ local DbSettings = {
     host = '0.0.0.0',
     port = 5433,
     database = "foosboy_advanced",
-    user = "super",
+    user = "fba_admin",
     password = "foosboy_advanced",
     pool = 5
   },
